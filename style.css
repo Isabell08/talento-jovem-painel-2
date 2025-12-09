@@ -1,0 +1,257 @@
+/* Paleta de Cores e Configurações Globais */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-main: #080A18; /* Deep Midnight Blue */
+    --bg-card: #14182B; /* Fundo mais escuro para profundidade */
+    --neon-cyan: #00E5FF; /* Azul Ciano Profundo */
+    --neon-orange: #FF9900; /* Laranja Elétrico */
+    --text-primary: #E0E0E0; /* Texto claro e sólido */
+    --text-secondary: #9AA0A6;
+    --shadow-glow: 0 0 15px rgba(0, 229, 255, 0.4), 0 0 5px rgba(255, 153, 0, 0.3);
+    --transition-speed: 0.3s;
+}
+
+/* Calm Mode (Para reduzir o brilho na apresentação se necessário) */
+body.calm-mode {
+    --neon-cyan: #00BFFF;
+    --neon-orange: #CC7A00;
+    --shadow-glow: 0 0 5px rgba(0, 191, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* TELA CHEIA (100% VH/VW) */
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte Profissional */
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Evita barras de rolagem desnecessárias */
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--bg-main);
+}
+
+.hidden { display: none !important; }
+
+/* HEADER */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--bg-card);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.header-title {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: var(--neon-orange);
+    text-shadow: 0 0 5px var(--neon-orange);
+    letter-spacing: 2px;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--neon-cyan);
+}
+
+#user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid var(--neon-orange);
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.7);
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--neon-cyan);
+    cursor: pointer;
+}
+
+.icon-button svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+    transition: filter 0.2s;
+}
+
+/* MAIN CONTENT */
+#screen-view {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 40px 30px; /* Maior padding para apresentação */
+    transition: transform 0.4s ease-out, opacity 0.4s;
+    background: radial-gradient(circle at 50% 10%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
+}
+
+/* FOOTER NAV */
+#bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: var(--bg-card);
+    border-top: 2px solid var(--neon-orange);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.nav-button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.nav-button.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+    transform: translateY(-2px);
+}
+
+.nav-button svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: currentColor;
+    margin-bottom: 5px;
+}
+
+/* CARDs (Estilo Sólido e Profissional) */
+.card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    box-shadow: var(--shadow-glow);
+    transition: all var(--transition-speed);
+}
+
+h2 {
+    color: var(--neon-orange);
+    text-shadow: 0 0 5px var(--neon-orange);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h3 {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 3px var(--neon-cyan);
+    margin-top: 0;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* FORMULÁRIOS E BOTÕES */
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid var(--neon-orange);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-shadow: inset 0 0 5px var(--neon-orange);
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00E5FF, #FF9900);
+    color: var(--bg-main);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+.btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    border: 2px solid var(--neon-cyan);
+    background: none;
+    color: var(--neon-cyan);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px var(--neon-cyan);
+    font-size: 1em;
+}
+
+/* TRILHA */
+.trilha-list li {
+    background-color: var(--bg-card);
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 4px solid var(--neon-orange);
+    list-style: none;
+    font-weight: 400;
+    transition: background-color 0.3s;
+}
+
+.trilha-list li.completed {
+    border-left-color: var(--neon-cyan);
+    opacity: 0.8;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.badge-easy { background-color: rgba(0, 229, 255, 0.2); color: var(--neon-cyan); }
+.badge-medium { background-color: rgba(255, 153, 0, 0.2); color: var(--neon-orange); }
+.badge-hard { background-color: rgba(255, 0, 100, 0.2); color: #FF0064; }
+
+/* Dashboard Chart */
+#progress-chart {
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    background-color: var(--bg-main);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+}
